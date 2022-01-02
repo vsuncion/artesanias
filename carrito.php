@@ -15,7 +15,9 @@ if(isset($_SESSION["cesta"])){
  if(isset($_REQUEST["item"])){
    $codigoProducto = $_REQUEST["item"];
    UNSET($_SESSION["cesta"][$codigoProducto]);
- }       
+ } 
+ 
+ //PREGUNTAMOS SI LA CESTA TIENE MINIMO UN PRODUCTO
 ?>
 
 <div class="container">
@@ -27,13 +29,15 @@ if(isset($_SESSION["cesta"])){
       <th scope="col">PRODUCTO</th>
       <th scope="col">PRECIO</th>
       <th scope="col">CANTIDAD</th>
-      <th scope="col">SUBTOTAL</th>
+      <th scope="col">SUBTOTAL S/</th>
       <th scope="col">ELIMINAR</th>
     </tr>
   </thead>
   <tbody>
 <?php
+    $total=0;
     foreach($_SESSION["cesta"] as $indice =>$arreglo){
+      $total+=$arreglo["subtotal"];
  ?>
   <tr>
       <th scope="row"><?php echo $arreglo["codigo"] ?></th>
@@ -49,15 +53,26 @@ if(isset($_SESSION["cesta"])){
 
   </tbody>
 </table>
-
-</div>
-
+ <div class="row justify-content-center p-3">
+     <div class="col-sm-3">
+      
+     </div>
+     <div class="col-sm-6 text-center">
+     <div class="btn-group">
+      <a href="finalizar.php" class="btn btn-outline-primary" aria-current="page">FINALIZAR COMPRA</a> &nbsp;&nbsp;&nbsp;
+      <a href="index.php" class="btn btn-outline-danger" aria-current="page">SEGUIR COMPRANDO</a>
+    </div>
+     </div>
+     <div class="col-sm-3">
+     <h5>TOTAL A PAGAR : <strong><?php echo $total ?> S/</strong></h5>
+     </div>
+  </div>
  <?php
 }else{
 ?>
 <div class="row justify-content-center p-3">
   <div class="alert alert-info text-center"  role="alert">
-  <h3> La cesta de encuentra vacía </h3>
+  <h3> La cesta se encuentra vacía </h3>
   </div>
 </div>
 

@@ -56,6 +56,6 @@ $info=mysqli_fetch_array($result);
 
 </div>
 
-  <?php include("pie_pagina.php"); ?>
+  <?php $link->close(); include("pie_pagina.php"); ?>
 
 

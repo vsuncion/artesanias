@@ -4,30 +4,36 @@ include("cabecera.php");
  
 if(isset($_REQUEST['btnagregar'])){
 //var_dump($_POST);
-
+$pencontro=0;
 $codigoProducto=$_POST['p_codigo'];
+$nombre=$_POST['p_nombre'];
+$precio=$_POST['p_precio'];
+$cantidad=$_POST['p_cantidad'];
+$subtotal=$precio * $cantidad;
+
+
 if(isset($_SESSION["cesta"])){
     foreach($_SESSION["cesta"] as $indice =>$arreglo){
        if($arreglo["codigo"]==$codigoProducto){
          echo "si encontro ".$codigoProducto;
+         $pencontro=1;
        }
     }
 }
 
- $nombre=$_POST['p_nombre'];
- $precio=$_POST['p_precio'];
- $cantidad=$_POST['p_cantidad'];
- $subtotal=$precio * $cantidad;
-
- $_SESSION["cesta"][$codigoProducto]["codigo"]  = $codigoProducto;
- $_SESSION["cesta"][$codigoProducto]["nombre"]  = $nombre;
- $_SESSION["cesta"][$codigoProducto]["cantidad"]= $cantidad;
- $_SESSION["cesta"][$codigoProducto]["precio"]  = $precio;
- $_SESSION["cesta"][$codigoProducto]["subtotal"]   = $subtotal;
-}else{
-    echo "no inicio";
-}
  
+ if($pencontro==1){
+    $_SESSION["cesta"][$codigoProducto]["cantidad"]+=$cantidad;
+    $_SESSION["cesta"][$codigoProducto]["subtotal"]+=$subtotal;
+  }else{
+    $_SESSION["cesta"][$codigoProducto]["codigo"]  = $codigoProducto;
+    $_SESSION["cesta"][$codigoProducto]["nombre"]  = $nombre;
+    $_SESSION["cesta"][$codigoProducto]["cantidad"]= $cantidad;
+    $_SESSION["cesta"][$codigoProducto]["precio"]  = $precio;
+    $_SESSION["cesta"][$codigoProducto]["subtotal"]   = $subtotal;
+ }
+
+}
 ?>
 
 <div class="container p-3">

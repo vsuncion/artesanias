@@ -20,6 +20,9 @@
 				<li class="nav-link">
 					<a href="registrase.php" class="nav-link active">REGISTRASE</a>
 				</li>
+				<li class="nav-link">
+					<a href="bandeja.php" class="nav-link active">BANDEJA</a>
+				</li>
 			</ul>
 			<form class="d-flex"> 
 				<a href="carrito.php"   class="btn btn-outline-primary" role="button" aria-disabled="true">Carrito Compras <i class="fa fa-shopping-cart"></i></a>&nbsp;
