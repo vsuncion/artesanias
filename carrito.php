@@ -57,16 +57,16 @@ if(isset($_SESSION["cesta"])){
      <div class="col-sm-3">
       
      </div>
-     <div class="col-sm-6 text-center">
-     <div class="btn-group">
-      <a href="finalizar.php" class="btn btn-outline-primary" aria-current="page">FINALIZAR COMPRA</a> &nbsp;&nbsp;&nbsp;
-      <a href="index.php" class="btn btn-outline-danger" aria-current="page">SEGUIR COMPRANDO</a>
+    <div class="col-sm-6 text-center">
+      <div class="btn-group">
+       <a href="finalizar.php" class="btn btn-outline-primary" aria-current="page">FINALIZAR COMPRA</a> &nbsp;&nbsp;&nbsp;
+       <a href="index.php" class="btn btn-outline-danger" aria-current="page">SEGUIR COMPRANDO</a>
+      </div>
     </div>
-     </div>
-     <div class="col-sm-3">
+    <div class="col-sm-3">
      <h5>TOTAL A PAGAR : <strong><?php echo $total ?> S/</strong></h5>
-     </div>
-  </div>
+    </div>
+ </div>
  <?php
 }else{
 ?>
@@ -79,7 +79,5 @@ if(isset($_SESSION["cesta"])){
 <?php
 }
 ?>
-
-
 
 <?php include("pie_pagina.php"); ?>

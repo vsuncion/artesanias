@@ -86,7 +86,7 @@ if(isset($_SESSION["cesta"])){
         </strong>  con un total de <strong><?php echo $cantidad ?></strong>  productos y un monto de <strong>
             <?php echo $total ?> S/</strong>, revise su bandeja de pedidos
         </div>
-        <a href="bandeja.php" class="btn btn-outline-info" role="button" aria-disabled="true">IR A LA BANDEJA</a>
+        <a href="bandeja.php?tipo=1" class="btn btn-outline-info" role="button" aria-disabled="true">IR A LA BANDEJA</a>
 
       <?php UNSET($_SESSION["cesta"]); }else{ ?>
         <div class="row justify-content-center p-3">

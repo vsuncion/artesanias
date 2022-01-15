@@ -25,7 +25,8 @@ function Conectarse(){
     }/*else{
         echo"Listo, estamos conectados.<br>";
     }*/
-    
+    $link -> set_charset("utf8");
+
     if(!mysqli_select_db($link,$baseDeDatos)){
         echo"Error seleccionando la base de datos.<br>";
         exit();
